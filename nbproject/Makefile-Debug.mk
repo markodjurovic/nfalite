@@ -37,7 +37,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o \
-	${OBJECTDIR}/src/cpp/core/util/rtti/RTTI.o \
 	${OBJECTDIR}/src/cpp/core/util/rtti/RTTIStorage.o
 
 
@@ -74,11 +73,6 @@ ${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o: src/cpp/core/util/rtti/Obje
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/util/rtti
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o src/cpp/core/util/rtti/ObjectFactory.cpp
-
-${OBJECTDIR}/src/cpp/core/util/rtti/RTTI.o: src/cpp/core/util/rtti/RTTI.cpp
-	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/util/rtti
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/util/rtti/RTTI.o src/cpp/core/util/rtti/RTTI.cpp
 
 ${OBJECTDIR}/src/cpp/core/util/rtti/RTTIStorage.o: src/cpp/core/util/rtti/RTTIStorage.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/util/rtti

@@ -24,20 +24,10 @@
                                                     NAMESPACE::CLASS_NAME* singleton = NAMESPACE::CLASS_NAME::getInstancePtr();\
                                                     int d = core::util::RTTI::ObjectFactory::getInstancePtr()->registerSingleton(clsIDISP, singleton);
 
-namespace core{
-    
-    namespace tools{
-        namespace image{
-            class IImageParameteres;
-        }
-    }
+namespace core{        
     
     namespace util{
-        
-        namespace prediction{
-            class IPrediction;
-        }
-        
+                
         namespace RTTI{
             
             class ObjectFactory : public Singleton<ObjectFactory>{
@@ -54,14 +44,13 @@ namespace core{
             public:
                 virtual ~ObjectFactory(){}
                 
-                template<typename T> T* createInstance(std::string classID) throw (SDException&){
+                template<typename T> T* createInstance(std::string classID){
                     core::util::RTTI::RTTI* rtti = RTTIStorage::getInstancePtr()->getClassRTTI(classID);
                     if (rtti != 0){
                         if (rtti->isSingleton() == false){
                             T* instance = static_cast<T*>(rtti->getClassInstance());
                             if (instance == 0){
-                                SDException exc(SHADOW_CLASS_NOT_REGISTRETED, "Class not registreted, class ID: " + classID);
-                                throw exc;
+                                //TODO
                             }
                             return instance;
                         }
@@ -71,12 +60,10 @@ namespace core{
                                 T* instance = static_cast<T*>(tmpInstance);
                                 return instance;                                
                             }
-                            SDException exc(SHADOW_CLASS_NOT_REGISTRETED, "Class not registreted, class ID: " + classID);
-                            throw exc;
+                            //TODO if fails
                         }
                     }
-                    SDException exc(SHADOW_CLASS_NOT_REGISTRETED, "Class not registreted, class ID: " + classID);
-                    throw exc;
+                   //TODO if fails
                 }
                                 
                 int registerSingleton(std::string classID, void* singleton);

@@ -3,9 +3,7 @@
 namespace core {
     namespace util {
         namespace RTTI {
-
-            using namespace core::tools::image;
-            using namespace core::util::prediction;
+            
             using namespace std;
             using namespace core::util;
             

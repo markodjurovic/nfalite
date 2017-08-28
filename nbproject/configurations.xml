@@ -38,7 +38,6 @@
               </logicalFolder>
               <logicalFolder name="rtti" displayName="rtti" projectFiles="true">
                 <itemPath>src/cpp/core/util/rtti/ObjectFactory.cpp</itemPath>
-                <itemPath>src/cpp/core/util/rtti/RTTI.cpp</itemPath>
                 <itemPath>src/cpp/core/util/rtti/RTTIStorage.cpp</itemPath>
               </logicalFolder>
             </logicalFolder>
@@ -94,8 +93,6 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/cpp/core/util/rtti/RTTI.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/cpp/core/util/rtti/RTTI.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/core/util/rtti/RTTIStorage.cpp"
@@ -146,8 +143,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="src/cpp/core/util/rtti/RTTI.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/cpp/core/util/rtti/RTTI.h" ex="false" tool="3" flavor2="0">
       </item>
