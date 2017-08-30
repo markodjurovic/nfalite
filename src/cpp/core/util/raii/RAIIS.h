@@ -8,32 +8,13 @@
 #ifndef RAIIS_H
 #define	RAIIS_H
 
-#include <pthread.h>
+#include <mutex>
 #include <fstream>
-
+#include <memory>
 
 namespace core{
     namespace util{
-        namespace raii{
-                        
-            class MutexRaii{
-            private:
-                pthread_mutex_t* mutex;
-                MutexRaii(){
-                    mutex = 0;
-                }
-            protected:
-            public:
-                MutexRaii(pthread_mutex_t* mtx){
-                    mutex = mtx;
-                    pthread_mutex_lock(mutex);
-                }
-                
-                ~MutexRaii(){
-                    if (mutex != 0)
-                        pthread_mutex_unlock(mutex);
-                }
-            };
+        namespace raii{                                    
             
             class FileRaii{
             private:

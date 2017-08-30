@@ -8,7 +8,7 @@ namespace core {
             using namespace core::util;
             
             void* ObjectFactory::getSingleton(std::string classID){
-                raii::MutexRaii autoLock(&mutex);
+                std::lock_guard<std::mutex> autoLock(mutex);
                 std::unordered_map<std::string, void*>::iterator iter = mappedSingletons.find(classID);
                 if (iter != mappedSingletons.end())
                     return iter->second;
@@ -16,7 +16,7 @@ namespace core {
             }                        
             
             int ObjectFactory::registerSingleton(std::string classID, void* singleton){
-                raii::MutexRaii autoLock(&mutex);
+                std::lock_guard<std::mutex> autoLock(mutex);
                 mappedSingletons[classID] = singleton;
                 return 1;
             }

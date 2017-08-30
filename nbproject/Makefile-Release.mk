@@ -36,8 +36,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o \
-	${OBJECTDIR}/src/cpp/core/util/rtti/RTTIStorage.o
+	${OBJECTDIR}/src/cpp/core/exceptions/BaseException.o \
+	${OBJECTDIR}/src/cpp/core/exceptions/InstancingException.o \
+	${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o
 
 
 # C Compiler Flags
@@ -69,15 +70,20 @@ ${OBJECTDIR}/main.o: main.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
+${OBJECTDIR}/src/cpp/core/exceptions/BaseException.o: src/cpp/core/exceptions/BaseException.cpp
+	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/exceptions
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/exceptions/BaseException.o src/cpp/core/exceptions/BaseException.cpp
+
+${OBJECTDIR}/src/cpp/core/exceptions/InstancingException.o: src/cpp/core/exceptions/InstancingException.cpp
+	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/exceptions
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/exceptions/InstancingException.o src/cpp/core/exceptions/InstancingException.cpp
+
 ${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o: src/cpp/core/util/rtti/ObjectFactory.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/util/rtti
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o src/cpp/core/util/rtti/ObjectFactory.cpp
-
-${OBJECTDIR}/src/cpp/core/util/rtti/RTTIStorage.o: src/cpp/core/util/rtti/RTTIStorage.cpp
-	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/util/rtti
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/util/rtti/RTTIStorage.o src/cpp/core/util/rtti/RTTIStorage.cpp
 
 # Subprojects
 .build-subprojects:

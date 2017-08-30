@@ -8,8 +8,9 @@
 #ifndef SINGLETON_H
 #define	SINGLETON_H
 
-#include "core/util/raii/RAIIS.h"
 #include "typedefs.h"
+#include <mutex>
+#include <memory>
 
 namespace core{
     namespace util{
@@ -44,8 +45,8 @@ namespace core{
         }
         
         template<class T> T* Singleton<T>::getInstancePtr(){            
-            pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-            raii::MutexRaii autoLock(&mutex);
+            std::mutex mutex;
+            std::lock_guard<std::mutex> autoLock(mutex);
             static T* instancePtrTmp = 0;
             if (instancePtrTmp == 0 || instancePtr == 0){
                 instancePtrTmp = new T();
@@ -60,10 +61,10 @@ namespace core{
         }
         
         template<class T> void Singleton<T>::destroy(){           
-            pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-            raii::MutexRaii autoLock(&mutex);
+            std::mutex mutex;
+            std::lock_guard<std::mutex> autoLock(mutex);
             if (instancePtr != 0){
-                Delete(instancePtr);                
+                delete(instancePtr);
             }
             instancePtr = 0;
         }

@@ -7,6 +7,10 @@
       <logicalFolder name="src" displayName="src" projectFiles="true">
         <logicalFolder name="cpp" displayName="cpp" projectFiles="true">
           <logicalFolder name="core" displayName="core" projectFiles="true">
+            <logicalFolder name="exceptions" displayName="exceptions" projectFiles="true">
+              <itemPath>src/cpp/core/exceptions/BaseException.h</itemPath>
+              <itemPath>src/cpp/core/exceptions/InstancingException.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="util" displayName="util" projectFiles="true">
               <logicalFolder name="raii" displayName="raii" projectFiles="true">
                 <itemPath>src/cpp/core/util/raii/RAIIS.h</itemPath>
@@ -33,12 +37,15 @@
       <logicalFolder name="src" displayName="src" projectFiles="true">
         <logicalFolder name="cpp" displayName="cpp" projectFiles="true">
           <logicalFolder name="core" displayName="core" projectFiles="true">
+            <logicalFolder name="exceptions" displayName="exceptions" projectFiles="true">
+              <itemPath>src/cpp/core/exceptions/BaseException.cpp</itemPath>
+              <itemPath>src/cpp/core/exceptions/InstancingException.cpp</itemPath>
+            </logicalFolder>
             <logicalFolder name="util" displayName="util" projectFiles="true">
               <logicalFolder name="raii" displayName="raii" projectFiles="true">
               </logicalFolder>
               <logicalFolder name="rtti" displayName="rtti" projectFiles="true">
                 <itemPath>src/cpp/core/util/rtti/ObjectFactory.cpp</itemPath>
-                <itemPath>src/cpp/core/util/rtti/RTTIStorage.cpp</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -60,6 +67,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>/data/Dev/NFALite/src</Elem>
+    <Elem>src/cpp/core/exceptions</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -79,6 +87,26 @@
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/cpp/core/exceptions/BaseException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/exceptions/BaseException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/exceptions/InstancingException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/exceptions/InstancingException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/cpp/core/util/Singleton.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/core/util/raii/RAIIS.h" ex="false" tool="3" flavor2="0">
@@ -94,11 +122,6 @@
             flavor2="0">
       </item>
       <item path="src/cpp/core/util/rtti/RTTI.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/cpp/core/util/rtti/RTTIStorage.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
       </item>
       <item path="src/cpp/core/util/rtti/RTTIStorage.h"
             ex="false"
@@ -130,6 +153,26 @@
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/cpp/core/exceptions/BaseException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/exceptions/BaseException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/exceptions/InstancingException.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/exceptions/InstancingException.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/cpp/core/util/Singleton.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/core/util/raii/RAIIS.h" ex="false" tool="3" flavor2="0">
@@ -145,11 +188,6 @@
             flavor2="0">
       </item>
       <item path="src/cpp/core/util/rtti/RTTI.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/cpp/core/util/rtti/RTTIStorage.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
       </item>
       <item path="src/cpp/core/util/rtti/RTTIStorage.h"
             ex="false"

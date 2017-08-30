@@ -11,23 +11,22 @@ namespace core{
             class RTTIStorage : public core::util::Singleton<RTTIStorage>{
                 friend class core::util::Singleton<RTTIStorage>;
             private:
-                pthread_mutex_t mutex;
+                std::mutex mutex;
                 std::unordered_map<std::string, RTTI*> mappedRTTIs;
             protected:
-                RTTIStorage() : core::util::Singleton<RTTIStorage>(){
-                    mutex = PTHREAD_MUTEX_INITIALIZER;
+                RTTIStorage() : core::util::Singleton<RTTIStorage>(){                    
                 }
             public:
                 virtual ~RTTIStorage(){}
                 
-                int registerClass(std::string classID, RTTI* rtti){                
-                    raii::MutexRaii autoLock(&mutex);
+                int registerClass(std::string const &classID, RTTI* rtti){                
+                    std::lock_guard<std::mutex> lock(mutex);
                     mappedRTTIs[classID] = rtti;
                     return 1;
                 }
                 
-                RTTI* getClassRTTI(std::string classID){
-                    raii::MutexRaii autoLock(&mutex);
+                RTTI* getClassRTTI(std::string const &classID){
+                    std::lock_guard<std::mutex> lock(mutex);
                     std::unordered_map<std::string, RTTI*>::iterator iter = mappedRTTIs.find(classID);
                     if (iter == mappedRTTIs.end())
                         return 0;

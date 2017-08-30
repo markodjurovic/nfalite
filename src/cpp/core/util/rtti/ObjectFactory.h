@@ -3,7 +3,7 @@
 
 #include "RTTI.h"
 #include "RTTIStorage.h"
-
+#include "../../exceptions/InstancingException.h"
 
 #define PREPARE_REGISTRATION(CLASS_NAME) public:\
                                 static void* __getClassInstanceSPC(){\
@@ -33,37 +33,37 @@ namespace core{
             class ObjectFactory : public Singleton<ObjectFactory>{
                 friend class Singleton<ObjectFactory>;
             private:
-                ObjectFactory(){
-                    mutex = PTHREAD_MUTEX_INITIALIZER;
+                ObjectFactory(){                    
                 }
                 
-                pthread_mutex_t mutex;
+                std::mutex mutex;
                 std::unordered_map<std::string, void*> mappedSingletons;
                 void* getSingleton(std::string classID);
             protected:
             public:
                 virtual ~ObjectFactory(){}
                 
-                template<typename T> T* createInstance(std::string classID){
+                template<typename T> T* createInstance(std::string const classID){
                     core::util::RTTI::RTTI* rtti = RTTIStorage::getInstancePtr()->getClassRTTI(classID);
-                    if (rtti != 0){
-                        if (rtti->isSingleton() == false){
-                            T* instance = static_cast<T*>(rtti->getClassInstance());
-                            if (instance == 0){
-                                //TODO
-                            }
-                            return instance;
-                        }
-                        else{
-                            void* tmpInstance = getSingleton(classID);
-                            if (tmpInstance != 0){
-                                T* instance = static_cast<T*>(tmpInstance);
-                                return instance;                                
-                            }
-                            //TODO if fails
-                        }
+                    if (rtti == 0){
+                        THROW_INSTANCING_EXCEPTION_WITH_MESSAGE("Can't find appropriate RTTI object, is class: " + classID + " registered to RTTI?");
                     }
-                   //TODO if fails
+                                        
+                    if (rtti->isSingleton() == false){
+                        T* instance = static_cast<T*>(rtti->getClassInstance());
+                        if (instance == 0){
+                            THROW_INSTANCING_EXCEPTION_WITH_MESSAGE("Can't instance class: " + classID);
+                        }
+                        return instance;
+                    }
+                    else{
+                        void* tmpInstance = getSingleton(classID);
+                        if (tmpInstance == 0){
+                            THROW_INSTANCING_EXCEPTION_WITH_MESSAGE("Can't instance singleton class: " + classID);
+                        }                        
+                        T* instance = static_cast<T*>(tmpInstance);
+                        return instance;
+                    }
                 }
                                 
                 int registerSingleton(std::string classID, void* singleton);
