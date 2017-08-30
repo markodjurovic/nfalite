@@ -32,7 +32,7 @@ namespace core{
 }
 
 
-#define THROW_INSTANCING_EXCEPTION_WITH_MESSAGE(MESSAGE) throw core::exceptions::InstancingException(__FILE__, __LINE__, #MESSAGE)
+#define THROW_INSTANCING_EXCEPTION_WITH_MESSAGE(MESSAGE) throw core::exceptions::InstancingException(__FILE__, __LINE__, MESSAGE)
 #define THROW_INSTANCING_EXCEPTION() throw core::exceptions::InstancingException(__FILE__, __LINE__)
 
 #endif /* __INSTANCING_EXCEPTION_H__ */

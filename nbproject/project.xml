@@ -6,12 +6,14 @@
             <name>NFALite</name>
             <c-extensions/>
             <cpp-extensions>cpp</cpp-extensions>
-            <header-extensions>h</header-extensions>
+            <header-extensions>h,hpp</header-extensions>
             <sourceEncoding>UTF-8</sourceEncoding>
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>/data/Dev/NFALite/src</sourceRootElem>
                 <sourceRootElem>src/cpp/core/exceptions</sourceRootElem>
+                <sourceRootElem>src/cpp/test</sourceRootElem>
+                <sourceRootElem>src/cpp/core/nfa</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

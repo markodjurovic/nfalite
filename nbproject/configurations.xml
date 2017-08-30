@@ -23,6 +23,16 @@
               <itemPath>src/cpp/core/util/Singleton.h</itemPath>
             </logicalFolder>
           </logicalFolder>
+          <logicalFolder name="nfa" displayName="nfa" projectFiles="true">
+            <logicalFolder name="state" displayName="state" projectFiles="true">
+              <itemPath>src/cpp/core/nfa/state/BaseState.h</itemPath>
+              <itemPath>src/cpp/core/nfa/state/StateRelation.h</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="test" displayName="test" projectFiles="true">
+            <itemPath>src/cpp/test/DummyClass.hpp</itemPath>
+            <itemPath>src/cpp/test/TestRTTIClass.hpp</itemPath>
+          </logicalFolder>
           <itemPath>src/cpp/typedefs.h</itemPath>
         </logicalFolder>
       </logicalFolder>
@@ -49,6 +59,14 @@
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
+          <logicalFolder name="nfa" displayName="nfa" projectFiles="true">
+            <logicalFolder name="state" displayName="state" projectFiles="true">
+              <itemPath>src/cpp/core/nfa/state/BaseState.cpp</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="test" displayName="test" projectFiles="true">
+            <itemPath>src/cpp/test/TestRTTIClass.cpp</itemPath>
+          </logicalFolder>
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.cpp</itemPath>
@@ -68,6 +86,8 @@
   <sourceRootList>
     <Elem>/data/Dev/NFALite/src</Elem>
     <Elem>src/cpp/core/exceptions</Elem>
+    <Elem>src/cpp/test</Elem>
+    <Elem>src/cpp/core/nfa</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -107,6 +127,18 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/cpp/core/nfa/state/BaseState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/nfa/state/BaseState.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/cpp/core/nfa/state/StateRelation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/cpp/core/util/Singleton.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/core/util/raii/RAIIS.h" ex="false" tool="3" flavor2="0">
@@ -127,6 +159,12 @@
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="src/cpp/test/DummyClass.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/cpp/test/TestRTTIClass.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/cpp/test/TestRTTIClass.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/typedefs.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -173,6 +211,18 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/cpp/core/nfa/state/BaseState.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/nfa/state/BaseState.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/cpp/core/nfa/state/StateRelation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/cpp/core/util/Singleton.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/core/util/raii/RAIIS.h" ex="false" tool="3" flavor2="0">
@@ -193,6 +243,12 @@
             ex="false"
             tool="3"
             flavor2="0">
+      </item>
+      <item path="src/cpp/test/DummyClass.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/cpp/test/TestRTTIClass.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/cpp/test/TestRTTIClass.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/typedefs.h" ex="false" tool="3" flavor2="0">
       </item>

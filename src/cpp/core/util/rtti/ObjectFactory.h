@@ -7,7 +7,7 @@
 
 #define PREPARE_REGISTRATION(CLASS_NAME) public:\
                                 static void* __getClassInstanceSPC(){\
-                                    return New CLASS_NAME();\
+                                    return new CLASS_NAME();\
                                 }    
 
 #define REGISTER_CLASS(CLASS_NAME, NAMESPACE)   core::util::RTTI::RTTI* rtti = new core::util::RTTI::RTTI();\
@@ -43,7 +43,7 @@ namespace core{
             public:
                 virtual ~ObjectFactory(){}
                 
-                template<typename T> T* createInstance(std::string const classID){
+                template<class T> T* createInstance(std::string const classID){
                     core::util::RTTI::RTTI* rtti = RTTIStorage::getInstancePtr()->getClassRTTI(classID);
                     if (rtti == 0){
                         THROW_INSTANCING_EXCEPTION_WITH_MESSAGE("Can't find appropriate RTTI object, is class: " + classID + " registered to RTTI?");

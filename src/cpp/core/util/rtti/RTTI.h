@@ -1,7 +1,7 @@
 #ifndef __RTTI_H__
 #define __RTTI_H__
 
-#include <string>
+//#include <string>
 #include <unordered_map>
 #include "core/util/Singleton.h"
 
