@@ -119,6 +119,14 @@ namespace std {
             return retVal;
         };
     };
+    
+    template<> struct hash<std::string const> {
+
+        size_t operator()(std::string const &val) const {            
+            std::hash<std::string> hash_fn;
+            return hash_fn(val);
+        };
+    };
 
     struct eqKeyVal{
         template<typename T> bool operator()(Pair<T>* kv1, Pair<T>* kv2) const {

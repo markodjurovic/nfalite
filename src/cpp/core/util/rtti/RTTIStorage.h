@@ -12,7 +12,7 @@ namespace core{
                 friend class core::util::Singleton<RTTIStorage>;
             private:
                 std::mutex mutex;
-                std::unordered_map<std::string, RTTI*> mappedRTTIs;
+                std::unordered_map<std::string const, RTTI*> mappedRTTIs;
             protected:
                 RTTIStorage() : core::util::Singleton<RTTIStorage>(){                    
                 }
