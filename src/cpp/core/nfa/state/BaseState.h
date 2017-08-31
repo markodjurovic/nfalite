@@ -10,14 +10,14 @@ namespace core{
             
             class BaseState{
             private:
-                unsigned int16_t priority;
+                uint16_t priority;
                 std::unordered_map<std::string, RELATION_TYPE> relations;
             protected:
             public:
                 void addRelation(StateRelation relation);
-                unsigned getPriority() const;
-                void setPriority(unsigned priority);
-                RELATION_TYPE getRelationWith()
+                uint16_t getPriority() const;
+                void setPriority(uint16_t priority);
+                RELATION_TYPE getRelationWith(std::string otherStateId);
             };
             
         }
