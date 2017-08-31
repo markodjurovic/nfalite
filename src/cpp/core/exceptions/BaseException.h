@@ -9,12 +9,14 @@ namespace core{
     namespace exceptions{
         
         class BaseException : public std::exception{
-        private:            
+        private:
+            void init(std::string const fileName, int const lineNum);            
         protected:
             std::string message;
             std::string file;
             int lineNum;
         public:
+            BaseException();
             BaseException(std::string const fileName, int const lineNum);
             BaseException(std::string const fileName, int const lineNum, std::string const message);
             virtual ~BaseException();

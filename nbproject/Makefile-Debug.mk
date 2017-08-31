@@ -70,32 +70,32 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/nfalite: ${OBJECTFILES}
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -DDEBUG -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/src/cpp/core/exceptions/BaseException.o: src/cpp/core/exceptions/BaseException.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/exceptions
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/exceptions/BaseException.o src/cpp/core/exceptions/BaseException.cpp
+	$(COMPILE.cc) -g -DDEBUG -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/exceptions/BaseException.o src/cpp/core/exceptions/BaseException.cpp
 
 ${OBJECTDIR}/src/cpp/core/exceptions/InstancingException.o: src/cpp/core/exceptions/InstancingException.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/exceptions
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/exceptions/InstancingException.o src/cpp/core/exceptions/InstancingException.cpp
+	$(COMPILE.cc) -g -DDEBUG -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/exceptions/InstancingException.o src/cpp/core/exceptions/InstancingException.cpp
 
 ${OBJECTDIR}/src/cpp/core/nfa/state/BaseState.o: src/cpp/core/nfa/state/BaseState.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/nfa/state
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/nfa/state/BaseState.o src/cpp/core/nfa/state/BaseState.cpp
+	$(COMPILE.cc) -g -DDEBUG -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/nfa/state/BaseState.o src/cpp/core/nfa/state/BaseState.cpp
 
 ${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o: src/cpp/core/util/rtti/ObjectFactory.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/util/rtti
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o src/cpp/core/util/rtti/ObjectFactory.cpp
+	$(COMPILE.cc) -g -DDEBUG -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o src/cpp/core/util/rtti/ObjectFactory.cpp
 
 ${OBJECTDIR}/src/cpp/test/TestRTTIClass.o: src/cpp/test/TestRTTIClass.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/test
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/test/TestRTTIClass.o src/cpp/test/TestRTTIClass.cpp
+	$(COMPILE.cc) -g -DDEBUG -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/test/TestRTTIClass.o src/cpp/test/TestRTTIClass.cpp
 
 # Subprojects
 .build-subprojects:
