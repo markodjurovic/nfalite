@@ -35,8 +35,8 @@ void testRTTIFail(){
         delete tstObj;
         std::cout << "SUCCESS" << std::endl;
     }
-    catch (core::exceptions::BaseException exc){
-        std::cout << exc.what() << std::endl;
+    catch (core::exceptions::BaseException &exc){
+        std::cout << exc.what() << ", " << exc.getFile() << ", " << exc.getLineNum() << std::endl;
     }
 }
 
@@ -48,8 +48,8 @@ void testRTTIWork(){
         std::cout << tstObjPtr.get()->doSomething() << std::endl;
         std::cout << "SUCCESS" << std::endl;
     }
-    catch (core::exceptions::BaseException exc){
-        std::cout << exc.what() << std::endl;
+    catch (core::exceptions::BaseException &exc){
+        std::cout << exc.what() << ", " << exc.getFile() << ", " << exc.getLineNum() << std::endl;
     }
 }
 

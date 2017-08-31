@@ -8,14 +8,17 @@ namespace core{
                 
             }
             
-            unsigned BaseState::getPriority() const {
+            uint16_t BaseState::getPriority() const {
                 return priority;
             }
 
-            void BaseState::setPriority(unsigned priority) {
+            void BaseState::setPriority(uint16_t priority) {
                 this->priority = priority;
             }
             
+            RELATION_TYPE BaseState::getRelationWith(){
+                return NO_RELATION;
+            }
         }
     }
 }
