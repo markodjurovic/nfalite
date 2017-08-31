@@ -103,6 +103,9 @@
             <pElem>src/cpp</pElem>
           </incDir>
           <commandLine>-std=c++11</commandLine>
+          <preprocessorList>
+            <Elem>DEBUG</Elem>
+          </preprocessorList>
         </ccTool>
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
