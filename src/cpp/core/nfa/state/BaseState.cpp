@@ -1,4 +1,5 @@
 #include "BaseState.h"
+#include "StateRelation.h"
 
 namespace core{
     namespace nfa{
@@ -8,7 +9,13 @@ namespace core{
                 currentInnerState = ENTER;
             }
             
-            void BaseState::addRelation(StateRelation const relation){
+            BaseState& BaseState::operator=(BaseState const &other){
+                this->currentInnerState = other.currentInnerState;
+                this->priority = other.priority;
+                this->relations = other.relations;
+            }
+            
+            void BaseState::addRelation(StateRelation const &relation){
                 
             }
             
@@ -16,11 +23,11 @@ namespace core{
                 return priority;
             }
 
-            void BaseState::setPriority(uint16_t priority) {
+            void BaseState::setPriority(uint16_t const priority) {
                 this->priority = priority;
             }
             
-            RELATION_TYPE BaseState::getRelationWith(std::string const otherStateId){
+            RELATION_TYPE BaseState::getRelationWith(std::string const &otherStateId){
                 std::unordered_map<std::string, RELATION_TYPE>::const_iterator iter = relations.find(otherStateId);
                 if (iter == relations.end()){
                     return NO_RELATION;
@@ -41,6 +48,10 @@ namespace core{
                         onExit();
                         break;
                 }
+            }
+            
+            void BaseState::setCurrentEntity(std::shared_ptr<void> const entity){
+                currentEntity = entity;
             }
         }
     }

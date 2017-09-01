@@ -40,7 +40,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/cpp/core/exceptions/InstancingException.o \
 	${OBJECTDIR}/src/cpp/core/nfa/state/BaseState.o \
 	${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o \
-	${OBJECTDIR}/src/cpp/test/TestRTTIClass.o
+	${OBJECTDIR}/src/cpp/test/TestRTTIClass.o \
+	${OBJECTDIR}/src/cpp/test/TestState.o
 
 
 # C Compiler Flags
@@ -96,6 +97,11 @@ ${OBJECTDIR}/src/cpp/test/TestRTTIClass.o: src/cpp/test/TestRTTIClass.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/test
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/test/TestRTTIClass.o src/cpp/test/TestRTTIClass.cpp
+
+${OBJECTDIR}/src/cpp/test/TestState.o: src/cpp/test/TestState.cpp
+	${MKDIR} -p ${OBJECTDIR}/src/cpp/test
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/test/TestState.o src/cpp/test/TestState.cpp
 
 # Subprojects
 .build-subprojects:

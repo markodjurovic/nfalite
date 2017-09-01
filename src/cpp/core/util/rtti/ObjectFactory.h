@@ -5,25 +5,6 @@
 #include "RTTIStorage.h"
 #include "../../exceptions/InstancingException.h"
 
-#define PREPARE_REGISTRATION(CLASS_NAME) public:\
-                                static void* __getClassInstanceSPC(){\
-                                    return new CLASS_NAME();\
-                                }    
-
-#define REGISTER_CLASS(CLASS_NAME, NAMESPACE)   core::util::RTTI::RTTI* rtti = new core::util::RTTI::RTTI();\
-                                                int a = rtti->setSingleton(false);\
-                                                int b = rtti->setInstancer(&CLASS_NAME::__getClassInstanceSPC);\
-                                                std::string clsIDISP = std::string(#NAMESPACE) + std::string("::") + std::string(#CLASS_NAME);\
-                                                int c = core::util::RTTI::RTTIStorage::getInstancePtr()->registerClass(clsIDISP, rtti);
-
-#define REGISTER_SINGLETON(CLASS_NAME, NAMESPACE)   core::util::RTTI::RTTI* rtti = new core::util::RTTI::RTTI();\
-                                                    int a = rtti->setSingleton(true);\
-                                                    int b = rtti->setInstancer(&CLASS_NAME::__getClassInstanceSPC);\
-                                                    std::string clsIDISP = std::string(#NAMESPACE) + std::string("::") + std::string(#CLASS_NAME);\
-                                                    int c = core::util::RTTI::RTTIStorage::getInstancePtr()->registerClass(clsIDISP, rtti);\
-                                                    NAMESPACE::CLASS_NAME* singleton = NAMESPACE::CLASS_NAME::getInstancePtr();\
-                                                    int d = core::util::RTTI::ObjectFactory::getInstancePtr()->registerSingleton(clsIDISP, singleton);
-
 namespace core{        
     
     namespace util{

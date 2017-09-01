@@ -7,18 +7,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/util/Singleton.h</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/exceptions/BaseException.cpp</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/util/rtti/ObjectFactory.h</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/util/rtti/RTTI.h</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/exceptions/BaseException.h</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/util/rtti/ObjectFactory.cpp</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/util/rtti/RTTIStorage.h</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/exceptions/InstancingException.h</file>
-            <file>file:/home/marko/Dev/nfalite/main.cpp</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/typedefs.h</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/exceptions/InstancingException.cpp</file>
-            <file>file:/home/marko/Dev/nfalite/src/cpp/core/util/raii/RAIIS.h</file>
+            <file>file:/data/Dev/nfalite/src/cpp/test/TestRTTIClass.cpp</file>
+            <file>file:/data/Dev/nfalite/main.cpp</file>
+            <file>file:/data/Dev/nfalite/src/cpp/core/util/rtti/macros.h</file>
+            <file>file:/data/Dev/nfalite/src/cpp/core/util/rtti/ObjectFactory.h</file>
         </group>
     </open-files>
 </project-private>

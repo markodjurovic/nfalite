@@ -19,6 +19,7 @@
                 <itemPath>src/cpp/core/util/rtti/ObjectFactory.h</itemPath>
                 <itemPath>src/cpp/core/util/rtti/RTTI.h</itemPath>
                 <itemPath>src/cpp/core/util/rtti/RTTIStorage.h</itemPath>
+                <itemPath>src/cpp/core/util/rtti/macros.h</itemPath>
               </logicalFolder>
               <itemPath>src/cpp/core/util/Singleton.h</itemPath>
             </logicalFolder>
@@ -26,12 +27,15 @@
           <logicalFolder name="nfa" displayName="nfa" projectFiles="true">
             <logicalFolder name="state" displayName="state" projectFiles="true">
               <itemPath>src/cpp/core/nfa/state/BaseState.h</itemPath>
+              <itemPath>src/cpp/core/nfa/state/InnerState.h</itemPath>
+              <itemPath>src/cpp/core/nfa/state/RelationType.h</itemPath>
               <itemPath>src/cpp/core/nfa/state/StateRelation.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="test" displayName="test" projectFiles="true">
             <itemPath>src/cpp/test/DummyClass.hpp</itemPath>
             <itemPath>src/cpp/test/TestRTTIClass.hpp</itemPath>
+            <itemPath>src/cpp/test/TestState.h</itemPath>
           </logicalFolder>
           <itemPath>src/cpp/typedefs.h</itemPath>
         </logicalFolder>
@@ -66,6 +70,7 @@
           </logicalFolder>
           <logicalFolder name="test" displayName="test" projectFiles="true">
             <itemPath>src/cpp/test/TestRTTIClass.cpp</itemPath>
+            <itemPath>src/cpp/test/TestState.cpp</itemPath>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
@@ -137,6 +142,16 @@
       </item>
       <item path="src/cpp/core/nfa/state/BaseState.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/cpp/core/nfa/state/InnerState.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/nfa/state/RelationType.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/cpp/core/nfa/state/StateRelation.h"
             ex="false"
             tool="3"
@@ -163,11 +178,17 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/cpp/core/util/rtti/macros.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/cpp/test/DummyClass.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/test/TestRTTIClass.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/cpp/test/TestRTTIClass.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/cpp/test/TestState.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/cpp/test/TestState.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/typedefs.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -221,6 +242,16 @@
       </item>
       <item path="src/cpp/core/nfa/state/BaseState.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/cpp/core/nfa/state/InnerState.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/nfa/state/RelationType.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="src/cpp/core/nfa/state/StateRelation.h"
             ex="false"
             tool="3"
@@ -247,11 +278,17 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="src/cpp/core/util/rtti/macros.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/cpp/test/DummyClass.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/test/TestRTTIClass.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/cpp/test/TestRTTIClass.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/cpp/test/TestState.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/cpp/test/TestState.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/typedefs.h" ex="false" tool="3" flavor2="0">
       </item>

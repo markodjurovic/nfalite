@@ -17,6 +17,7 @@
 #include "test/TestRTTIClass.hpp"
 #include <iostream>
 #include <memory>
+#include "test/TestState.h"
 
 using namespace std;
 using namespace test;
@@ -36,7 +37,7 @@ void testRTTIFail(){
         std::cout << "SUCCESS" << std::endl;
     }
     catch (core::exceptions::BaseException &exc){
-        std::cout << exc.what() << ", " << exc.getFile() << ", " << exc.getLineNum() << std::endl;
+        std::cout << exc.what() << std::endl;
     }
 }
 
@@ -49,13 +50,28 @@ void testRTTIWork(){
         std::cout << "SUCCESS" << std::endl;
     }
     catch (core::exceptions::BaseException &exc){
-        std::cout << exc.what() << ", " << exc.getFile() << ", " << exc.getLineNum() << std::endl;
+        std::cout << exc.what() << std::endl;
+    }
+}
+
+void testStateOperator(){
+    auto objectFactory = core::util::RTTI::ObjectFactory::getInstancePtr();
+    try{
+        std::string classId("test::TestState");
+        std::shared_ptr<test::TestState> tstObjPtr1(objectFactory->createInstance<test::TestState>(classId));
+        tstObjPtr1.get()->setPriority(12);
+        TestState testObj2 = *(tstObjPtr1.get());
+        std::cout << testObj2.getPriority() << std::endl;
+    }
+    catch (core::exceptions::BaseException &exc){
+        std::cout << exc.what() << std::endl;
     }
 }
 
 int main(int argc, char** argv) {
     testRTTIFail();
     testRTTIWork();
+    testStateOperator();
     return 0;
 }
 

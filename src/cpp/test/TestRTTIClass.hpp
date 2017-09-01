@@ -1,7 +1,7 @@
 #ifndef __TEST_RTTI_CLASS_HPP__
 #define __TEST_RTTI_CLASS_HPP__
 
-#include "core/util/rtti/ObjectFactory.h"
+#include "core/util/rtti/macros.h"
 
 namespace test{
     class TestRTTIClass{
