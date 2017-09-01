@@ -4,13 +4,17 @@
 #include "core/util/rtti/macros.h"
 
 namespace test{
-    class TestRTTIClass{
-        PREPARE_REGISTRATION(TestRTTIClass);
-    private:
-    protected:
-    public:
-        int doSomething();
-    };
+    namespace inner{
+        
+        class TestRTTIClass{
+            PREPARE_REGISTRATION(TestRTTIClass);
+        private:
+        protected:
+        public:
+            int doSomething();
+        };
+                
+    }
 }
 
 #endif //__TEST_RTTI_CLASS_HPP__

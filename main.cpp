@@ -20,7 +20,6 @@
 #include "test/TestState.h"
 
 using namespace std;
-using namespace test;
 
 /*
  * 
@@ -42,10 +41,8 @@ void testRTTIFail(){
 }
 
 void testRTTIWork(){
-    auto objectFactory = core::util::RTTI::ObjectFactory::getInstancePtr();
-    try{
-        std::string classId("test::TestRTTIClass");
-        std::shared_ptr<TestRTTIClass> tstObjPtr(objectFactory->createInstance<TestRTTIClass>(classId));
+    try{        
+        std::shared_ptr<test::inner::TestRTTIClass> tstObjPtr(GET_OBJECT_INSTANCE(TestRTTIClass, test::inner));
         std::cout << tstObjPtr.get()->doSomething() << std::endl;
         std::cout << "SUCCESS" << std::endl;
     }
@@ -54,13 +51,12 @@ void testRTTIWork(){
     }
 }
 
-void testStateOperator(){
-    auto objectFactory = core::util::RTTI::ObjectFactory::getInstancePtr();
+void testStateOperator(){    
     try{
         std::string classId("test::TestState");
-        std::shared_ptr<test::TestState> tstObjPtr1(objectFactory->createInstance<test::TestState>(classId));
+        std::shared_ptr<test::TestState> tstObjPtr1(GET_OBJECT_INSTANCE(TestState, test));
         tstObjPtr1.get()->setPriority(12);
-        TestState testObj2 = *(tstObjPtr1.get());
+        test::TestState testObj2 = *(tstObjPtr1.get());
         std::cout << testObj2.getPriority() << std::endl;
     }
     catch (core::exceptions::BaseException &exc){

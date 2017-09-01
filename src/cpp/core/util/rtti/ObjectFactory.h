@@ -54,4 +54,6 @@ namespace core{
     }
 }
 
+#define GET_OBJECT_INSTANCE(CLASS_NAME, NAMESPACE) core::util::RTTI::ObjectFactory::getInstancePtr()->createInstance<NAMESPACE::CLASS_NAME>(std::string(#NAMESPACE) + std::string("::") + std::string(#CLASS_NAME))
+
 #endif 
