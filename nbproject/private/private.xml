@@ -7,10 +7,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/data/Dev/nfalite/src/cpp/test/TestRTTIClass.cpp</file>
-            <file>file:/data/Dev/nfalite/main.cpp</file>
-            <file>file:/data/Dev/nfalite/src/cpp/core/util/rtti/macros.h</file>
-            <file>file:/data/Dev/nfalite/src/cpp/core/util/rtti/ObjectFactory.h</file>
+            <file>file:/home/marko/Dev/nfalite/src/cpp/core/nfa/state/RelationType.h</file>
+            <file>file:/home/marko/Dev/nfalite/src/cpp/core/nfa/state/manager/StateManager.h</file>
+            <file>file:/home/marko/Dev/nfalite/src/cpp/core/nfa/state/manager/StateManager.cpp</file>
+            <file>file:/home/marko/Dev/nfalite/src/cpp/test/TestState.cpp</file>
+            <file>file:/home/marko/Dev/nfalite/src/cpp/core/nfa/state/StateRelation.h</file>
+            <file>file:/home/marko/Dev/nfalite/src/cpp/core/nfa/state/BaseState.h</file>
+            <file>file:/home/marko/Dev/nfalite/src/cpp/core/nfa/state/BaseState.cpp</file>
+            <file>file:/home/marko/Dev/nfalite/src/cpp/test/TestState.h</file>
         </group>
     </open-files>
 </project-private>

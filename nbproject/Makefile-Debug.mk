@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/cpp/core/exceptions/BaseException.o \
 	${OBJECTDIR}/src/cpp/core/exceptions/InstancingException.o \
 	${OBJECTDIR}/src/cpp/core/nfa/state/BaseState.o \
+	${OBJECTDIR}/src/cpp/core/nfa/state/manager/StateManager.o \
 	${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o \
 	${OBJECTDIR}/src/cpp/test/TestRTTIClass.o \
 	${OBJECTDIR}/src/cpp/test/TestState.o
@@ -87,6 +88,11 @@ ${OBJECTDIR}/src/cpp/core/nfa/state/BaseState.o: src/cpp/core/nfa/state/BaseStat
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/nfa/state
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -DDEBUG -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/nfa/state/BaseState.o src/cpp/core/nfa/state/BaseState.cpp
+
+${OBJECTDIR}/src/cpp/core/nfa/state/manager/StateManager.o: src/cpp/core/nfa/state/manager/StateManager.cpp
+	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/nfa/state/manager
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -DDEBUG -Isrc/cpp -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/cpp/core/nfa/state/manager/StateManager.o src/cpp/core/nfa/state/manager/StateManager.cpp
 
 ${OBJECTDIR}/src/cpp/core/util/rtti/ObjectFactory.o: src/cpp/core/util/rtti/ObjectFactory.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/cpp/core/util/rtti

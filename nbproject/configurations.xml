@@ -12,9 +12,6 @@
               <itemPath>src/cpp/core/exceptions/InstancingException.h</itemPath>
             </logicalFolder>
             <logicalFolder name="util" displayName="util" projectFiles="true">
-              <logicalFolder name="raii" displayName="raii" projectFiles="true">
-                <itemPath>src/cpp/core/util/raii/RAIIS.h</itemPath>
-              </logicalFolder>
               <logicalFolder name="rtti" displayName="rtti" projectFiles="true">
                 <itemPath>src/cpp/core/util/rtti/ObjectFactory.h</itemPath>
                 <itemPath>src/cpp/core/util/rtti/RTTI.h</itemPath>
@@ -26,6 +23,9 @@
           </logicalFolder>
           <logicalFolder name="nfa" displayName="nfa" projectFiles="true">
             <logicalFolder name="state" displayName="state" projectFiles="true">
+              <logicalFolder name="manager" displayName="manager" projectFiles="true">
+                <itemPath>src/cpp/core/nfa/state/manager/StateManager.h</itemPath>
+              </logicalFolder>
               <itemPath>src/cpp/core/nfa/state/BaseState.h</itemPath>
               <itemPath>src/cpp/core/nfa/state/InnerState.h</itemPath>
               <itemPath>src/cpp/core/nfa/state/RelationType.h</itemPath>
@@ -56,8 +56,6 @@
               <itemPath>src/cpp/core/exceptions/InstancingException.cpp</itemPath>
             </logicalFolder>
             <logicalFolder name="util" displayName="util" projectFiles="true">
-              <logicalFolder name="raii" displayName="raii" projectFiles="true">
-              </logicalFolder>
               <logicalFolder name="rtti" displayName="rtti" projectFiles="true">
                 <itemPath>src/cpp/core/util/rtti/ObjectFactory.cpp</itemPath>
               </logicalFolder>
@@ -65,6 +63,9 @@
           </logicalFolder>
           <logicalFolder name="nfa" displayName="nfa" projectFiles="true">
             <logicalFolder name="state" displayName="state" projectFiles="true">
+              <logicalFolder name="manager" displayName="manager" projectFiles="true">
+                <itemPath>src/cpp/core/nfa/state/manager/StateManager.cpp</itemPath>
+              </logicalFolder>
               <itemPath>src/cpp/core/nfa/state/BaseState.cpp</itemPath>
             </logicalFolder>
           </logicalFolder>
@@ -157,9 +158,17 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/cpp/core/util/Singleton.h" ex="false" tool="3" flavor2="0">
+      <item path="src/cpp/core/nfa/state/manager/StateManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/cpp/core/util/raii/RAIIS.h" ex="false" tool="3" flavor2="0">
+      <item path="src/cpp/core/nfa/state/manager/StateManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/util/Singleton.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/core/util/rtti/ObjectFactory.cpp"
             ex="false"
@@ -257,9 +266,17 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="src/cpp/core/util/Singleton.h" ex="false" tool="3" flavor2="0">
+      <item path="src/cpp/core/nfa/state/manager/StateManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="src/cpp/core/util/raii/RAIIS.h" ex="false" tool="3" flavor2="0">
+      <item path="src/cpp/core/nfa/state/manager/StateManager.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/cpp/core/util/Singleton.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/cpp/core/util/rtti/ObjectFactory.cpp"
             ex="false"

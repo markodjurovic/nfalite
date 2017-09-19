@@ -1,5 +1,7 @@
 #include "BaseState.h"
 #include "StateRelation.h"
+#include "core/nfa/state/manager/StateManager.h"
+#include <memory>
 
 namespace core{
     namespace nfa{
@@ -7,12 +9,14 @@ namespace core{
             
             BaseState::BaseState(){
                 currentInnerState = ENTER;
+                skipUpdate = false;
             }
             
             BaseState& BaseState::operator=(BaseState const &other){
                 this->currentInnerState = other.currentInnerState;
                 this->priority = other.priority;
                 this->relations = other.relations;
+                //this->currentEntity = other.currentEntity;
             }
             
             void BaseState::addRelation(StateRelation const &relation){
@@ -28,7 +32,7 @@ namespace core{
             }
             
             RELATION_TYPE BaseState::getRelationWith(std::string const &otherStateId){
-                std::unordered_map<std::string, RELATION_TYPE>::const_iterator iter = relations.find(otherStateId);
+                auto iter = relations.find(otherStateId);
                 if (iter == relations.end()){
                     return NO_RELATION;
                 }
@@ -36,6 +40,10 @@ namespace core{
             }
             
             void BaseState::update(){
+                if (skipUpdate){
+                    skipUpdate = false;
+                    return;
+                }
                 switch (currentInnerState){
                     case ENTER:
                         onEnter();
@@ -50,8 +58,13 @@ namespace core{
                 }
             }
             
-            void BaseState::setCurrentEntity(std::shared_ptr<void> const entity){
-                currentEntity = entity;
+            void BaseState::setCurrentEntity(std::shared_ptr<void> const entity){                
+                currentEntity = entity;                
+                manager::StateManager::getInstancePtr()->addTo(entity, std::shared_ptr<BaseState>(this));
+            }
+            
+            void BaseState::setSkipUpdate(bool value){
+                skipUpdate = value;
             }
         }
     }

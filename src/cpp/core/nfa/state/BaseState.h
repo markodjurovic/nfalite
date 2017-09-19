@@ -15,7 +15,8 @@ namespace core{
             class BaseState{
             private:
                 uint16_t priority;
-                std::unordered_map<std::string, RELATION_TYPE> relations;                
+                std::unordered_map<std::string, RELATION_TYPE> relations;
+                bool skipUpdate;
             protected:
                 STATE_STATE currentInnerState;
                 std::shared_ptr<void> currentEntity;
@@ -32,6 +33,7 @@ namespace core{
                 void update();
                 
                 void setCurrentEntity(std::shared_ptr<void> const entity);
+                void setSkipUpdate(bool value);
                 
                 BaseState& operator=(BaseState const &other);
             };
