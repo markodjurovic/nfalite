@@ -33,6 +33,7 @@ namespace core{
                     std::vector<std::shared_ptr<core::nfa::state::BaseState>> getUnfriendlyStates(std::shared_ptr<core::nfa::state::BaseState>, std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>> states);
                     void resetSkipUpdate();
                     void resetSkipUpdate(std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>> &stateSet);
+                    std::unordered_map<std::shared_ptr<core::nfa::state::BaseState>, std::vector<std::shared_ptr<core::nfa::state::BaseState>>> findStatesConflicts(std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>> states);
                 protected:
                 public:
                     void addTo(std::shared_ptr<void> entity, std::shared_ptr<core::nfa::state::BaseState> state);
