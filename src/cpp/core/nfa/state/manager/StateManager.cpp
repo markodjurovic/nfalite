@@ -26,8 +26,7 @@ namespace core{
                         stateSet = iter->second;
                     }
                     stateSet.insert(state);
-                }
-                
+                }                
                 
                 void StateManager::update(){
                     auto iter = entitiesStates.begin();
@@ -38,35 +37,80 @@ namespace core{
                     resetSkipUpdate();
                 }
                 
-                void addToExcludedBy(std::unordered_map<std::shared_ptr<core::nfa::state::BaseState>, std::vector<std::shared_ptr<core::nfa::state::BaseState>>> &collection,
+                void addToExcludedBy(std::unordered_map<std::shared_ptr<core::nfa::state::BaseState>, std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>>> &collection,
                                      std::shared_ptr<core::nfa::state::BaseState> excludedBy, std::shared_ptr<core::nfa::state::BaseState> excluded){
                     
                     auto iter = collection.find(excludedBy);
-                    std::vector<std::shared_ptr<core::nfa::state::BaseState>> excludedList;
+                    std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>> excludedList;
                     if (iter == collection.end()){
                         collection[excludedBy] = excludedList;
                     }
                     else{
                         excludedList = iter->second;
                     }
-                    excludedList.push_back(excluded);
+                    excludedList.insert(excluded);
+                }
+                
+                bool isInConflictWithSomeOtherThan(std::shared_ptr<core::nfa::state::BaseState> state, std::shared_ptr<core::nfa::state::BaseState> referentExclusionState, 
+                                                   std::unordered_map<std::shared_ptr<core::nfa::state::BaseState>, 
+                                                        std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>>> &collection){
+                    
+                    //we will iterate through collection and check for all keys other than referentExclusionState
+                    //if is that key in conflict with state
+                    auto iter = collection.begin();
+                    while (iter != collection.end()){
+                        if (iter->first != referentExclusionState){
+                            auto conflictSet = iter->second;
+                            if (conflictSet.find(state) != conflictSet.end()){
+                                return true;
+                            }
+                        }
+                        iter++;
+                    }
+                    return false;
                 }
                 
                 /**
                  * idea is to relax some states from skipping
                  * for example if state A cause that state B should be skipped,
-                 * but state C cause that A should be skipped, and C is not in conflict with B
+                 * but state C cause that A should be skipped, and if no other state is in conflict with B
                  * then state B should be updated
                  * @param collection
                  */
                 void relaxSkippingStates(std::unordered_map<std::shared_ptr<core::nfa::state::BaseState>, 
-                                         std::vector<std::shared_ptr<core::nfa::state::BaseState>>> &collection){
-                    
+                                         std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>>> &collection){
+                    auto iter = collection.begin();
+                    while (iter != collection.end()){
+//                        auto causeOfConflict = iter->first;
+                        auto conflicted = iter->second;
+                        auto conflictedIter = conflicted.begin();
+                        while (conflictedIter != conflicted.end()){
+                            std::shared_ptr<core::nfa::state::BaseState> state = *conflictedIter;
+                            //check if this state is cause of conflict for some other states
+                            auto isStateCauseOfConflict = collection.find(state);
+                            if (isStateCauseOfConflict != collection.end()){
+                                //now we should check up if conflicted states should be relaxed
+                                auto conflictedWithConflictedSet = isStateCauseOfConflict->second;
+                                auto conflictdeWithConflictedIter = conflictedWithConflictedSet.begin();
+                                while (conflictdeWithConflictedIter != conflictedWithConflictedSet.end()){
+                                    auto conflictedOfConflicted = *conflictdeWithConflictedIter;
+                                    if (!isInConflictWithSomeOtherThan(conflictedOfConflicted, state, collection)){
+                                        //this means that conflictedOfConflicted is not in conflict with other states than state
+                                        //so skip can be relaxed
+                                        conflictedOfConflicted.get()->setSkipUpdate(false);                                        
+                                    }
+                                    conflictdeWithConflictedIter++;
+                                }
+                            }
+                            conflictedIter++;
+                        }
+                        iter++;
+                    }
                 }
                 
-                std::unordered_map<std::shared_ptr<core::nfa::state::BaseState>, std::vector<std::shared_ptr<core::nfa::state::BaseState>>> StateManager::findStatesConflicts(std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>> states){
+                std::unordered_map<std::shared_ptr<core::nfa::state::BaseState>, std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>>> StateManager::findStatesConflicts(std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>> states){
                     //track all states that will be skipped, and what state cause that skip
-                    std::unordered_map<std::shared_ptr<core::nfa::state::BaseState>, std::vector<std::shared_ptr<core::nfa::state::BaseState>>> conflicts;
+                    std::unordered_map<std::shared_ptr<core::nfa::state::BaseState>, std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>>> conflicts;
                     
                     auto iter = states.begin();
                     
