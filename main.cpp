@@ -52,10 +52,10 @@ void testRTTIWork(){
 }
 
 void testStateOperator(){    
-    try{
-        std::string classId("test::TestState");
+    try{        
         std::shared_ptr<test::TestState> tstObjPtr1(GET_OBJECT_INSTANCE(TestState, test));
         tstObjPtr1.get()->setPriority(12);
+        std::cout << tstObjPtr1.get()->getClassId() << std::endl;
         test::TestState testObj2 = *(tstObjPtr1.get());
         std::cout << testObj2.getPriority() << std::endl;
     }

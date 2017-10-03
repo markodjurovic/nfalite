@@ -9,6 +9,7 @@
         <group>
             <file>file:/home/marko/Dev/nfalite/src/cpp/core/nfa/state/manager/StateManager.h</file>
             <file>file:/home/marko/Dev/nfalite/src/cpp/core/nfa/state/manager/StateManager.cpp</file>
+            <file>file:/home/marko/Dev/nfalite/src/cpp/core/nfa/state/BaseState.h</file>
         </group>
     </open-files>
 </project-private>

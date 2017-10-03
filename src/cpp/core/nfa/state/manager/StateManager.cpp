@@ -161,7 +161,7 @@ namespace core{
                     }
                 }
                 
-                std::vector<std::shared_ptr<core::nfa::state::BaseState>> StateManager::getUnfriendlyStates(std::shared_ptr<core::nfa::state::BaseState>, std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>> states){
+                std::vector<std::shared_ptr<core::nfa::state::BaseState>> StateManager::getUnfriendlyStates(std::shared_ptr<core::nfa::state::BaseState> state, std::unordered_set<std::shared_ptr<core::nfa::state::BaseState>> states){
                     //TODO get all directly and indirectly unfriendly states
                 }
                 

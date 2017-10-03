@@ -36,6 +36,8 @@ namespace core{
                 void setSkipUpdate(bool value);
                 
                 BaseState& operator=(BaseState const &other);
+                
+                virtual std::string getClassId() = 0;
             };
             
         }
